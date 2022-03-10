@@ -14,23 +14,25 @@ const producer = new Kafka.Producer({
 });
 
 const readline = require('readline');
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
     terminal: false
 });
 
-producer.connect()
+producer.connect() 
+
+
 
 producer.on('ready', () => {
-   
+    console.log('rl-----', rl.on)
     rl.on('line', line => {
-        console.log('rl-----', rl.on)
         console.log("send:", line);
         try {
             producer.produce(
                 // Topic to send the message to
-                'damnx',
+                'damn04',
                 // optionally we can manually specify a partition for the message
                 // this defaults to -1 - which will use librdkafka's default partitioner (consistent random for keyed messages, random for unkeyed messages)
                 null,
