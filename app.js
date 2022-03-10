@@ -7,7 +7,7 @@ const client = Kafka.AdminClient.create({
 
 client.createTopic({
     topic: 'damn04',
-    num_partitions: 2,
+    num_partitions: 12,
     replication_factor: 1
 }, function (err) {
     // Done!
